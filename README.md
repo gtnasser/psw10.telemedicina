@@ -1,6 +1,6 @@
 # Telemedicina
 
-Projeto criado durante o evento PYSTACK WEEK 10 da Pythonando.
+Projeto criado durante o evento PYSTACK WEEK 10 da [Pythonando](https://pythonando.com.br/psw/evento/).
 Foram utilizados principalmente Python e Django, além de SQLITE3 para armazenar os dados e Bootstrap como framework visual.
 
 Este projeto é sistema de Telemedicina, permitindo o gerenciamento de consultas tanto para médicos quanto pacientes. 

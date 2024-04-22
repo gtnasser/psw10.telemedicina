@@ -13,6 +13,7 @@
 {% endblock 'head' %}
 
 {% block 'body' %}
+{% include "partials/navbar.html" %}
 
     <br><br>
     <div class="container">
@@ -65,11 +66,10 @@
 
                 {% if consulta.status == 'I' and consulta.link %}
                     <a href="{{consulta.link}}"  class="btn btn-success btn-dark-color btn-lg" >Acessar consulta</a>
-
                 {% else %}
                     <a href="#" class="btn btn-success btn-dark-color btn-lg disabled" >Acessar consulta</a>
-
                 {% endif %}
+                
                 <hr>
                 <h3 class="p-bold">Meus documentos</h3>
                 <br>
