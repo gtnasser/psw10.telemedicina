@@ -10,19 +10,6 @@
       {% block 'head' %}{% endblock 'head' %}
   </head>
   <body>
-
-    <!-- minha barra provisoria...-->
-    <p class="p-bold">
-      user:<span class="color-dark">{{ request.user }}</span>
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      {% if request.user.is_authenticated %}
-        <input type="button" value="Sair" class="btn btn-success btn-dark-color" onclick="javascript:window. location.href='/usuarios/sair'">
-      {% endif %}
-    </p>
-    <hr>
-
     {% block 'body' %}{% endblock 'body' %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>

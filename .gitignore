@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.vhealing
 
 # Spyder project settings
 .spyderproject
