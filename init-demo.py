@@ -7,16 +7,13 @@ try:
     from django.contrib.auth.models import User
     from medico.models import Especialidades
  
-#    for user in User.objects.all():
-#        print(f'username: {user.username}')
-
     print('Especialidades:')
     if not Especialidades.objects.filter(especialidade='cardiologia').exists():
         newrec = Especialidades.objects.create(especialidade='cardiologia')
     if not Especialidades.objects.filter(especialidade='clin.geral').exists():
         newrec = Especialidades.objects.create(especialidade='clin.geral')
-
-#    new_esp = Especialidades.objects.create(especialidade='psicologia')
+    if not Especialidades.objects.filter(especialidade='psicologia').exists():
+        newrec = Especialidades.objects.create(especialidade='psicologia')
     esps = Especialidades.objects.all() 
     for esp in esps:
         print(f'- {esp}')
