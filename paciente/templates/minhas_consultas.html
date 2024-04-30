@@ -18,19 +18,29 @@
         <br>
         <h2><span class="color-dark">Suas consultas</span></h2>
 
-        <div class="row">
+        <form action="">
+            <div class="row">
+                <div class="col-md">
+                    <label for="especialidade">Especialidade:{{filtro_especialidade}}</label>
+                    <select name="especialidade" id="especialidade" class="form-select shadow-main-color" >
+                        <option value="">Todas</option>
+                        {% for especialidade in especialidades %}
+                        <option value="{{especialidade.id}}">{{especialidade.especialidade}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <div class="col-md">
-                <input type="text" name="especialidades" id="" class="form-control shadow-main-color" placeholder="Especialidades médias">
-            </div>
-            <div class="col-md">
-                <input type="date" name="data" id="" class="form-control shadow-main-color" placeholder="Data da consulta">
+                <div class="col-md">
+                    <label for="data">Data da Consulta:{{filtro_data}}</label>
+                    <input type="date" name="data" id="data" class="form-control shadow-main-color" placeholder="Data da consulta" value="{{filtro_data}}">
+                </div>
+
+                <div class="col-md">
+                    <label for="data">Ações:</label>
+                    <input type="submit" value="Filtrar" class="btn btn-dark-color-outline">
 
             </div>
-            <div class="col-md">
-                <input type="submit" value="Filtrar" class="btn btn-dark-color-outline">
-            </div>
-        </div>
+        </form>
 
         <br>
 

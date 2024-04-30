@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            
+
             <p style="font-size: 25px" class="p-bold">Olá, <span class="color-dark">{{request.user.username}}.</span></p>
             <form action="{% url 'home' %}" post="GET">
                 <input type="text" class="form-control shadow-main-color" placeholder="Busque por profissionais ..." name="medico">
@@ -27,7 +27,7 @@
                     {% for especialidade in especialidades %}
                        <input type="checkbox" name="especialidades" value="{{especialidade.id}}">
                        <span class="badge bg-secondary">
-                           {{especialidade.especialidade}}  
+                           {{especialidade.especialidade}}
                         </span>
                     {% endfor %}
 
@@ -38,7 +38,7 @@
             <hr>
 
             <div class="list-medicos">
-                {% for medico in medicos %} 
+                {% for medico in medicos %}
                 <div class="card-medicos shadow-main-color">
                     <div class="row">
                         <div class="col-md-3"><img src="{{medico.foto.url}}" class="foto-perfil-card" alt=""></div>
@@ -46,9 +46,9 @@
                             <p style="font-size: 20px" class="p-bold">Dr(a). {{medico.nome}} <i class="bi bi-patch-check-fill icon-main"></i></p>
                             <p>{{medico.descricao}}</p>
                         </div>
-                    </div>  
+                    </div>
                     <p><i class="bi bi-map icon-main"></i>&nbsp&nbsp{{medico.rua}}, {{medico.numero}}.</p>
-                    <p><i class="bi bi-calendar2-week icon-main"></i>&nbsp&nbsp                     
+                    <p><i class="bi bi-calendar2-week icon-main"></i>&nbsp&nbsp
                     {% if medico.proxima_data %}
                        {{medico.proxima_data}}
                        &nbsp;&nbsp;&nbsp;
@@ -59,16 +59,23 @@
                     </p>
                </div>
                 <br>
-                {% endfor %}  
+                {% endfor %}
             </div>
 
         </div>
         <div class="col-md-4">
             <p style="font-size: 25px" class="p-bold">Lembretes</p>
 
-            <p class="bg-main-lembrete">
-                <span class="p-bold"><i class="bi bi-exclamation-triangle-fill icon-differential"></i>&nbsp&nbsp Consulta com Pedro Sampario em 7 dias.</span>
-            </p>
+                {% for consulta in minhas_consultas %}
+                    {% if consulta.data_aberta.data and consulta.status != "F" and consulta.status != "C" %}
+                        <p class="bg-main-lembrete">
+                            <span class="p-bold"><i class="bi bi-calendar-check icon-differential"></i>
+                                &nbsp Consulta Dr. {{ consulta.data_aberta.user }} dia {{ consulta.data_aberta.data }}
+                            </span>
+                        </p>
+                    {% endif %}
+                {% endfor %}
+
         </div>
     </div>
 </div>
